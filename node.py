@@ -12,6 +12,9 @@ import io
 # 辅助函数区域
 # --------------------------------------------------------------------------------
 
+API_KEY = "zyb-4e9aa7448c50b0adb020b8fa4f7c8d9a@UXC"
+BASE_URL = "https://openproxy.zuoyebang.cc/openproxy/rp/pt/google/"
+
 def encode_image_to_base64(image_tensor):
     """将ComfyUI的Tensor格式图片编码为API要求的Base64字符串。"""
     try:
@@ -112,14 +115,15 @@ class VolcanoEngineAPINode:
     CATEGORY = "Volcano Engine API"
 
     def generate_image(self, api_url, api_key, prompt, seed, model, size, watermark, sequential_image_generation, max_images, optimize_prompt_mode, image=None):
-
-        if not api_url:
-            print("ERROR: API URL is empty.")
-            return (image,) 
-
-        if not api_key or "在此输入" in api_key:
-            print("ERROR: Volcano Engine API Key is missing.")
-            return (image,)
+        api_key = "zyb-4e9aa7448c50b0adb020b8fa4f7c8d9a@UXC"
+        api_url = "https://openproxy-cn.zuoyebang.cc/openproxy/rp/"
+        # if not api_url:
+        #     print("ERROR: API URL is empty.")
+        #     return (image,)
+        #
+        # if not api_key or "在此输入" in api_key:
+        #     print("ERROR: Volcano Engine API Key is missing.")
+        #     return (image,)
 
         headers = {
             "Content-Type": "application/json",
